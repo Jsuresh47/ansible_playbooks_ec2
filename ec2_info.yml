@@ -1,0 +1,13 @@
+---
+ - name: This play is used to fetch instance info
+   hosts: 172.31.20.4
+   gather_facts: true
+   tasks:
+   - name: Info about ec2 using ec2_instance_facts
+     ec2_instance_info:
+      region: ap-southeast-1
+      filters:
+       "tag:Env": test
+     register: ec2_info
+   - name: Displaying output
+     debug: msg="{{ec2_info}}"
