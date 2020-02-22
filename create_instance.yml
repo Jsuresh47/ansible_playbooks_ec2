@@ -1,0 +1,11 @@
+---
+ - name: Launching aws ec2 instance
+   hosts: 172.31.20.4
+   gather_facts: false
+   tasks:
+   - name: Launching ec2 instance with ec2 module
+     ec2:
+      instance_type: t2.micro
+      image: ami-09a4a9ce71ff3f20b
+      key_name: suresh
+      region: ap-southeast-1

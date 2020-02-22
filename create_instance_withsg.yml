@@ -1,0 +1,19 @@
+---
+ - name: This play book is used to create ec2 instance/s using sgs and Tags
+   hosts: 172.31.20.4
+   connection: local
+   gather_facts: true
+   tasks:
+   - name: creating ec2 instance
+     ec2: 
+      instance_type: t2.micro
+      image: ami-09a4a9ce71ff3f20b
+      count: 1
+      key_name: suresh
+      region: ap-southeast-1
+      wait: yes
+      # group: launch-wizard-9
+      group_id: sg-03d68de9dc6ff079c 
+      instance_tags:
+        Name: my
+        Env: dev

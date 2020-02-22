@@ -1,0 +1,13 @@
+---
+ - name: This play book is used to start the  ec2 instance/s 
+   hosts: 172.31.20.4
+   connection: local
+   gather_facts: true
+   tasks:
+   - name: starting ec2 instance
+     ec2:
+      instance_ids: i-04269c38bd7dc67d1
+      region: ap-southeast-1
+      state: absent
+      wait: yes
+  
